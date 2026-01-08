@@ -32,7 +32,7 @@ jobs:
         restore-keys: ${{ runner.os }}-m2
         
     - name: Run tests
-      run: ./mvnw clean test
+      run: ./mvn clean test
       
     - name: Generate test report
       uses: dorny/test-reporter@v1
@@ -65,10 +65,10 @@ jobs:
         restore-keys: ${{ runner.os }}-m2
         
     - name: Build application
-      run: ./mvnw clean compile
+      run: ./mvn clean compile
       
     - name: Package application
-      run: ./mvnw package -DskipTests
+      run: ./mvn package -DskipTests
       
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
@@ -99,5 +99,5 @@ jobs:
         restore-keys: ${{ runner.os }}-m2
         
     - name: Run code analysis
-      run: ./mvnw clean compile checkstyle:check
+      run: ./mvn clean compile checkstyle:check
       continue-on-error: true
